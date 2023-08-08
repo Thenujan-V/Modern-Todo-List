@@ -1,0 +1,111 @@
+:root{
+    --VeryDarkBlue: hsl(235, 21%, 11%);
+    --VeryDarkDesaturatedBlue: hsl(235, 24%, 19%);
+    --LightGrayishBlue: hsl(234, 39%, 85%);
+    --LightGrayishBlue: hsl(236, 33%, 92%);
+    --DarkGrayishBlue: hsl(234, 11%, 52%);
+    --VeryDarkGrayishBlue: hsl(233, 14%, 35%);
+    --VeryDarkGrayishBlue: hsl(237, 14%, 26%);
+
+    --BrightBlue: hsl(220, 98%, 61%);
+    --CheckBackground: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%)
+}
+body{
+    margin: 0;
+    padding:0;
+    background-color: var(--VeryDarkBlue);
+    font-family:Josefin Sans;
+    
+}
+#todo{
+    background-image: url(Media/bg-desktop-dark.jpg);
+    height: 170px;
+    margin-top: 0px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+#todo h2{
+    margin-top:0px;
+    color: var(--LightGrayishBlue);
+    letter-spacing: 8px;
+    font-weight: 900;
+    padding:6vh 0 0 30vw
+}
+#container{
+    display:flex;
+    flex-direction: column;
+    position: relative;
+    top: -100px;
+    left: 30vw;
+    padding-top: 20px;
+    margin-bottom: 0;
+}
+
+#todoList input{
+    width:450px;
+    height:35px;
+    background-color: var(--VeryDarkDesaturatedBlue);
+    color:var(--LightGrayishBlue);
+    font-family:Josefin Sans;
+    outline: none;
+    border-style:none ;
+}
+#lowerLayer{
+    padding-top:1px;
+    background-color: var(--VeryDarkDesaturatedBlue);
+    margin-top: 15px;
+    width:454px;
+}
+#noofList{
+    height:300px;
+    
+}
+#noofList p{
+    padding:0 10px 0 20px;
+    font-size: 18px;
+    font-weight: 350;
+    color: var(--LightGrayishBlue);
+}
+#noofList hr{
+    margin:0;
+}
+
+#buttons{
+    display: flex;
+    justify-content: center;
+    gap:20px;
+    padding-bottom:10px;
+}
+
+#buttons a{
+    color: var(--DarkGrayishBlue);
+    font-size: 10px;
+    text-decoration:none;
+    font-weight: 700;
+}
+#buttons a:hover{
+    color:var(--LightGrayishBlue)
+}
+#buttons a:active{
+    color:var(--BrightBlue)
+}
+#first{
+    flex:1
+}
+#second a{
+    flex:1; 
+    padding:5px;
+}
+#last{
+    flex:1;  
+}
+p{
+    color:var(--DarkGrayishBlue);
+    font-size:10px;
+    font-weight: 700;
+}
+
+
+
+
