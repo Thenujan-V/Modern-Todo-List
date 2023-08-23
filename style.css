@@ -41,15 +41,20 @@ body{
     padding-top: 20px;
     margin-bottom: 0;
 }
-
-#todoList input{
-    width:450px;
+#todoInput{
+    width:410px;
     height:35px;
     background-color: var(--VeryDarkDesaturatedBlue);
     color:var(--LightGrayishBlue);
     font-family:Josefin Sans;
     outline: none;
-    border-style:none ;
+    border-style:none;
+    padding-left: 40px;
+}
+.inputRadio{
+    height: 20px;
+    width: 20px;
+    position:absolute;
 }
 #lowerLayer{
     padding-top:1px;
