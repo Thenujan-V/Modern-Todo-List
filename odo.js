@@ -12,26 +12,29 @@ let radio = document.querySelector(".inputRadio");
 let todoPara = document.querySelector("#todoPara");
 let divider = document.querySelector("#divider");
 
-let todos = []
+let todos = [];
+let allTodos = [];
 
 
 
 radio.addEventListener('click', () => {
-    /*todos.push(input.value)
-    localStorage.setItem('todos',JSON.stringify(todos))*/
+    todos.push(input.value);
+    allTodos.push(input.value);
+    localStorage.setItem('todos',JSON.stringify(todos));
+    localStorage.setItem('alltodos',JSON.stringify(allTodos))
+
     addTodo(input.value);
-    let line = document.createElement('hr')
-    divider.appendChild(line)
     input.value = ''
     //radio.checked = false;
 })
 function addTodo(todo){
     let para = document.createElement('p')
     para.innerText = todo
-    //list.appendChild(para)
     para.id = "todoPara";
     createRadiobutton();
     divider.appendChild(para)
+    let line = document.createElement('hr')
+    divider.appendChild(line);
 }
 
 function createRadiobutton(){
@@ -46,4 +49,20 @@ function createRadiobutton(){
 Clear.addEventListener('click',(e) => {
     e.preventDefault();
     list.removeChild(list.firstElementChild);
+    removeTodo(todos);
+})
+
+function removeTodo(todo){
+    //let index = todos.indexof(todo);
+    while(todo.length > 0){
+        todo.pop();
+    }
+    localStorage.setItem('todos',JSON.stringify(todos))
+}
+
+All.addEventListener('click',(e) => {
+    e.preventDefault();
+    allTodos.map((elements) => {
+        addTodo(elements);
+    })
 })
