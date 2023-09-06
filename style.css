@@ -40,6 +40,7 @@ body{
     left: 30vw;
     padding-top: 20px;
     margin-bottom: 0;
+   
 }
 #todoInput{
     width:410px;
@@ -105,10 +106,8 @@ body{
 #last{
     flex:1;  
 }
-p{
-    color:var(--DarkGrayishBlue);
-    font-size:10px;
-    font-weight: 700;
+#noofList #todoPara{
+    margin-left: 20px;
 }
 
 

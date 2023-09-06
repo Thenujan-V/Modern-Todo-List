@@ -9,25 +9,46 @@ let first = document.querySelector("#first");
 let buttons = document.getElementById("buttons");
 let radio = document.querySelector(".inputRadio");
 
+let todos = []
+
+
 
 radio.addEventListener('click', () => {
+    /*todos.push(input.value)
+    localStorage.setItem('todos',JSON.stringify(todos))*/
+    createRadiobutton();
     addTodo(input.value);
     let line = document.createElement('hr')
     list.appendChild(line)
     input.value = ''
-    radio.checked = false;
+    //radio.checked = false;
 })
 function addTodo(todo){
+    
+
+    let para = document.createElement('p')
+    para.innerText = todo
+    list.appendChild(para)
+    para.id = "todoPara";
+    
+    
+    
+}
+/*x.addEventListener("click", () => {
+        para.style.textdecoration = "overline";
+    }*/
+
+function createRadiobutton(){
     var x = document.createElement("INPUT");
     x.type = "radio";
     list.appendChild(x)
     x.style.paddingTop = "200px";
     x.style.width = "20px";
     x.style.height = "20px";
-    let para = document.createElement('p')
-    para.innerText = todo
-    list.appendChild(para)
-    x.style.position="absolute"
-    para.style.paddingLeft = "40px";
-    
+    x.style.position="absolute";
 }
+Clear.addEventListener('click',(e) => {
+    e.preventDefault();
+    document.getElementById('todoPara').value = '';
+    
+})
