@@ -9,12 +9,12 @@ let first = document.querySelector("#first");
 let buttons = document.getElementById("buttons");
 let radio = document.querySelector(".inputRadio");
 
-let todoPara = document.querySelector("#todoPara");
-let divider = document.querySelector("#divider");
+//let todoPara = document.querySelector("#todoPara");
+//let divider = document.querySelector("#divider");
 
 let todos = [];
 let allTodos = [];
-
+let active = [];
 
 
 radio.addEventListener('click', () => {
@@ -24,9 +24,10 @@ radio.addEventListener('click', () => {
     localStorage.setItem('alltodos',JSON.stringify(allTodos))
 
     addTodo(input.value);
-    input.value = ''
+    input.value = '';
     //radio.checked = false;
 })
+
 function addTodo(todo){
     let para = document.createElement('p')
     para.innerText = todo
@@ -36,15 +37,15 @@ function addTodo(todo){
     let line = document.createElement('hr')
     divider.appendChild(line);
 }
-
+var radioBtn;
 function createRadiobutton(){
-    var x = document.createElement("INPUT");
-    x.type = "radio";
-    divider.appendChild(x)
-    x.style.paddingTop = "200px";
-    x.style.width = "20px";
-    x.style.height = "20px";
-    x.style.position="absolute";
+    radioBtn = document.createElement("INPUT");
+    radioBtn.type = "radio";
+    divider.appendChild(radioBtn);
+    radioBtn.style.paddingTop = "200pradioBtn";
+    radioBtn.style.width = "20px";
+    radioBtn.style.height = "20px";
+    radioBtn.style.position="absolute";
 }
 Clear.addEventListener('click',(e) => {
     e.preventDefault();
@@ -66,3 +67,13 @@ All.addEventListener('click',(e) => {
         addTodo(elements);
     })
 })
+/*let radioBtn = document.getElementById("radioBtn");*/
+
+radioBtn.addEventListener('click', () => {
+    var index;
+    let nextPara = radioBtn.nextElementSibling.value;
+    push.Active(nextPara);
+    index = todos.indexOf(nextPara);
+    todos.splice(index,1);
+})
+
