@@ -63,16 +63,6 @@ function createRadiobutton(){
 }
 }
 
-Clear.addEventListener('click',(e) => {
-    e.preventDefault();
-    list.removeChild(list.firstElementChild);
-    removeTodo(todos);
-    localStorage.removeItem("allTodos");
-    localStorage.removeItem("todos");
-    localStorage.removeItem("complete");
-
-})
-
 function removeTodo(todo){
     //let index = todos.indexof(todo);
     while(todo.length > 0){
@@ -90,8 +80,26 @@ All.addEventListener('click',(e) => {
     })
 })
 
-Active.addEventListener("click")
+Active.addEventListener("click", (e) => {
+    e.preventDefault();
+    todos.map((elements) => {
+        addTodo(elements);
+    })
+})
+Completed.addEventListener("click", () => {
+    complete.map((elements) => {
+        addTodo(elements);
+    })
+})
+Clear.addEventListener('click',(e) => {
+    e.preventDefault();
+    list.removeChild(list.firstElementChild);
+    removeTodo(todos);
+    localStorage.removeItem("allTodos");
+    localStorage.removeItem("todos");
+    localStorage.removeItem("complete");
 
+})
 
 
 
