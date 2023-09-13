@@ -10,57 +10,67 @@ let buttons = document.getElementById("buttons");
 let radio = document.querySelector(".inputRadio");
 
 //let todoPara = document.querySelector("#todoPara");
-//let divider = document.querySelector("#divider");
+let divider = document.querySelector("#divider");
 
 let todos = [];
 let allTodos = [];
-let active = [];
+let complete = [];
 
 
 radio.addEventListener('click', () => {
     todos.push(input.value);
     allTodos.push(input.value);
-    localStorage.setItem('alltodos',JSON.stringify(allTodos))
+    localStorage.setItem('allTodos',JSON.stringify(allTodos))
     localStorage.setItem('todos',JSON.stringify(allTodos))
 
     addTodo(input.value);
     input.value = '';
-    //radio.checked = false;
 })
 
 function addTodo(todo){
     let para = document.createElement('p')
     para.innerText = todo
     para.id = "todoPara";
+    let div = document.createElement("div");
+    divider.appendChild(div)
     createRadiobutton();
-    divider.appendChild(para)
-    let line = document.createElement('hr')
-    divider.appendChild(line);
-}
-var radioBtn;
+    div.appendChild(para);
+    let line = document.createElement('hr');
+    div.appendChild(line);
+
+    var radioBtn;
 function createRadiobutton(){
     radioBtn = document.createElement("INPUT");
     radioBtn.type = "radio";
-    divider.appendChild(radioBtn);
+    div.appendChild(radioBtn);
     radioBtn.style.paddingTop = "200pradioBtn";
     radioBtn.style.width = "20px";
     radioBtn.style.height = "20px";
     radioBtn.style.position="absolute";
 
     radioBtn.addEventListener('click', () => {
-        console.log("radiobtn");
         var index;
-        let nextPara = radioBtn.nextElementSibling.value;
-        console.log(nextPara);
-        active.push(nextPara);
+        let nextPara = radioBtn.nextSibling.innerHTML;
+        complete.push(nextPara);
+        localStorage.setItem("complete",JSON.stringify(complete));
         index = todos.indexOf(nextPara);
         todos.splice(index,1);
+        localStorage.setItem("todos",JSON.stringify(todos));
+
+        let parent = radioBtn.parentElement;
+        parent.remove();
     })
 }
+}
+
 Clear.addEventListener('click',(e) => {
     e.preventDefault();
     list.removeChild(list.firstElementChild);
     removeTodo(todos);
+    localStorage.removeItem("allTodos");
+    localStorage.removeItem("todos");
+    localStorage.removeItem("complete");
+
 })
 
 function removeTodo(todo){
@@ -73,10 +83,14 @@ function removeTodo(todo){
 
 All.addEventListener('click',(e) => {
     e.preventDefault();
-    allTodos.map((elements) => {
+    /*divider.remove();
+    let divider = document.createElement("div");*/
+    complete.map((elements) => {
         addTodo(elements);
     })
 })
+
+Active.addEventListener("click")
 
 
 
