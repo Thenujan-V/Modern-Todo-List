@@ -20,8 +20,8 @@ let active = [];
 radio.addEventListener('click', () => {
     todos.push(input.value);
     allTodos.push(input.value);
-    localStorage.setItem('todos',JSON.stringify(todos));
     localStorage.setItem('alltodos',JSON.stringify(allTodos))
+    localStorage.setItem('todos',JSON.stringify(allTodos))
 
     addTodo(input.value);
     input.value = '';
@@ -46,6 +46,16 @@ function createRadiobutton(){
     radioBtn.style.width = "20px";
     radioBtn.style.height = "20px";
     radioBtn.style.position="absolute";
+
+    radioBtn.addEventListener('click', () => {
+        console.log("radiobtn");
+        var index;
+        let nextPara = radioBtn.nextElementSibling.value;
+        console.log(nextPara);
+        active.push(nextPara);
+        index = todos.indexOf(nextPara);
+        todos.splice(index,1);
+    })
 }
 Clear.addEventListener('click',(e) => {
     e.preventDefault();
@@ -67,13 +77,7 @@ All.addEventListener('click',(e) => {
         addTodo(elements);
     })
 })
-/*let radioBtn = document.getElementById("radioBtn");*/
 
-radioBtn.addEventListener('click', () => {
-    var index;
-    let nextPara = radioBtn.nextElementSibling.value;
-    push.Active(nextPara);
-    index = todos.indexOf(nextPara);
-    todos.splice(index,1);
-})
+
+
 
