@@ -75,6 +75,8 @@ All.addEventListener('click',(e) => {
     e.preventDefault();
     /*divider.remove();
     let divider = document.createElement("div");*/
+    let dividerNodes = divider.childNodes;
+    dividerNodes.remove();  
     complete.map((elements) => {
         addTodo(elements);
     })
@@ -82,6 +84,8 @@ All.addEventListener('click',(e) => {
 
 Active.addEventListener("click", (e) => {
     e.preventDefault();
+    removeAllChild(divider);
+    console.log("dividerNodes")
     todos.map((elements) => {
         addTodo(elements);
     })
@@ -100,6 +104,12 @@ Clear.addEventListener('click',(e) => {
     localStorage.removeItem("complete");
 
 })
+
+let removeAllChild = (divider) => {
+    while(divider.childNodes){
+        divider.removeChild(divider.firstChild) 
+    }
+}
 
 
 
