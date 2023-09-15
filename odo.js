@@ -74,9 +74,7 @@ function removeTodo(todo){
 All.addEventListener('click',(e) => {
     e.preventDefault();
     /*divider.remove();
-    let divider = document.createElement("div");*/
-    let dividerNodes = divider.childNodes;
-    dividerNodes.remove();  
+    let divider = document.createElement("div");*/ 
     complete.map((elements) => {
         addTodo(elements);
     })
@@ -84,13 +82,20 @@ All.addEventListener('click',(e) => {
 
 Active.addEventListener("click", (e) => {
     e.preventDefault();
-    removeAllChild(divider);
-    console.log("dividerNodes")
+    //removeAllChild(divider);
+    //console.log(divider.firstChild)
+    while(divider.firstChild){
+        divider.removeChild(divider.firstChild) 
+    }
     todos.map((elements) => {
         addTodo(elements);
     })
 })
 Completed.addEventListener("click", () => {
+    /*while(divider.firstChild){
+        divider.removeChild(divider.firstChild) 
+    }*/
+    divider.innerHTML = '';
     complete.map((elements) => {
         addTodo(elements);
     })
@@ -105,11 +110,11 @@ Clear.addEventListener('click',(e) => {
 
 })
 
-let removeAllChild = (divider) => {
+/*let removeAllChild = (divider) => {
     while(divider.childNodes){
         divider.removeChild(divider.firstChild) 
     }
-}
+}*/
 
 
 
