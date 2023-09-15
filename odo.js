@@ -77,15 +77,6 @@ function createRadiobutton(){
     })
 }
 }
-
-function removeTodo(todo){
-    //let index = todos.indexof(todo);
-    while(todo.length > 0){
-        todo.pop();
-    }
-    localStorage.setItem('todos',JSON.stringify(todos))
-}
-
 All.addEventListener('click',(e) => {
     e.preventDefault();
     divider.innerHTML = ''; 
@@ -131,17 +122,25 @@ Completed.addEventListener("click", () => {
 })
 Clear.addEventListener('click',(e) => {
     e.preventDefault();
-    list.removeChild(list.firstElementChild);
     removeTodo(todos);
+    removeTodo(allTodos);
+    removeTodo(complete);
+    divider.innerHTML = ""
+
+    console.log(todos);
 
     let todosCount = '';
     todosCount = `<p>Count Of Todos : 0</p>`;
     NoOfTodos.innerHTML = todosCount;
 
-    localStorage.removeItem("allTodos");
-    localStorage.removeItem("todos");
-    localStorage.removeItem("complete");
+    localStorage.setItem("allTodos",JSON.stringify(allTodos));
+    localStorage.setItem("todos",JSON.stringify(todos));
+    localStorage.setItem("complete",JSON.stringify(complete));
 
 })
-
+function removeTodo(todo){
+    while(todo.length = 0){
+        todo.shift();
+    }
+}
 

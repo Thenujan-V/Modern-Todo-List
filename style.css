@@ -32,7 +32,7 @@ body{
     font-weight: 900;
     position: relative;
     top: 50px;
-    padding-left: 35%;
+    padding-left: 36%;
 }
 #container{
     display: flex;
@@ -84,8 +84,8 @@ body{
     height: 350px;
 }
 #noofList{
-    overflow: auto;
-    overflow-y: scroll;
+    /*overflow: auto;
+    overflow-y: scroll;*/
 }
 #noofList p{
     padding:0 10px 0 20px;
