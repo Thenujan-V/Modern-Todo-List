@@ -5,7 +5,7 @@ let Active = document.getElementById('active');
 let Completed = document.getElementById('complete');
 let Clear = document.getElementById('clear');
 let add = document.getElementById("add");
-let first = document.querySelector("#first");
+let NoOfTodos = document.querySelector("#first");
 let buttons = document.getElementById("buttons");
 let radio = document.querySelector(".inputRadio");
 
@@ -37,6 +37,11 @@ function addTodo(todo){
     div.appendChild(para);
     let line = document.createElement('hr');
     div.appendChild(line);
+    
+    let count = divider.childElementCount;
+    let todosCount = '';
+    todosCount = `<a>No Of Items :${count}</a>`;
+    NoOfTodos.innerHTML = todosCount;
 
     var radioBtn;
 function createRadiobutton(){
@@ -109,12 +114,5 @@ Clear.addEventListener('click',(e) => {
     localStorage.removeItem("complete");
 
 })
-
-/*let removeAllChild = (divider) => {
-    while(divider.childNodes){
-        divider.removeChild(divider.firstChild) 
-    }
-}*/
-
 
 
