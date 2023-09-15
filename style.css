@@ -35,15 +35,6 @@ body{
     padding-left: 35%;
 }
 #container{
-    /*display: flex;
-    justify-content: center;
-    position: relative;
-    top: -100px;
-    left: 30vw;
-    padding-top: 20px;
-    margin-bottom: 0;
-    width: 100%;*/
-    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -51,7 +42,7 @@ body{
     top: -80px;
 }
 #todoInput{
-    width:410px;
+    width:413px;
     height:35px;
     background-color: var(--VeryDarkDesaturatedBlue);
     color:var(--LightGrayishBlue);
@@ -59,6 +50,10 @@ body{
     outline: none;
     border-style:none;
     padding-left: 40px;
+    border-radius: 10px;
+}
+#todoInput::first-letter{
+    text-transform: capitalize;
 }
 #todoInput::placeholder{
     font-size: 16px;
@@ -83,10 +78,14 @@ body{
     background-color: var(--VeryDarkDesaturatedBlue);
     margin-top: 15px;
     width:454px;
+    border-radius: 10px;
 }
 #noofList{
     height: 350px;
-
+}
+#noofList{
+    overflow: auto;
+    overflow-y: scroll;
 }
 #noofList p{
     padding:0 10px 0 20px;
@@ -94,7 +93,8 @@ body{
     font-weight: 350;
     color: var(--LightGrayishBlue);
 }
-#noofList div{
+#noofList p::first-letter{
+    text-transform: capitalize;
 }
 #noofList hr{
     margin:0;
