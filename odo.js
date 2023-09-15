@@ -23,8 +23,10 @@ radio.addEventListener('click', () => {
     localStorage.setItem('allTodos',JSON.stringify(allTodos))
     localStorage.setItem('todos',JSON.stringify(allTodos))
 
+    input.classList.remove("todoInput");
     addTodo(input.value);
     input.value = '';
+    //radio.checked = false;
 })
 
 function addTodo(todo){
@@ -38,7 +40,13 @@ function addTodo(todo){
     div.appendChild(para);
     let line = document.createElement('hr');
     div.appendChild(line);
-    
+
+    if(todo === ''){
+        let lastElement = divider.lastChild;
+        lastElement.remove();
+        input.classList.add("todoInput");
+    }
+
     let count = divider.childElementCount;
     let todosCount = '';
     todosCount = `<p>Count Of Todos : ${count}</p>`;
@@ -84,9 +92,11 @@ All.addEventListener('click',(e) => {
     allTodos.map((elements) => {
         addTodo(elements);
     })
+    input.classList.remove("todoInput");
+
     let count = divider.childElementCount;
     let todosCount = '';
-    todosCount = `<p>Count Of Todos : ${count}</p>`;
+    todosCount = `<p>All Todos : ${count}</p>`;
     NoOfTodos.innerHTML = todosCount;
 })
 
@@ -98,9 +108,10 @@ Active.addEventListener("click", (e) => {
     todos.map((elements) => {
         addTodo(elements);
     })
+    input.classList.remove("todoInput");
     let count = divider.childElementCount;
     let todosCount = '';
-    todosCount = `<p>Count Of Todos : ${count}</p>`;
+    todosCount = `<p>Active Todos : ${count}</p>`;
     NoOfTodos.innerHTML = todosCount;
 })
 Completed.addEventListener("click", () => {
@@ -109,9 +120,13 @@ Completed.addEventListener("click", () => {
     complete.map((elements) => {
         addTodo(elements);
     })
+    /*let radioNodes = divider.getElementsByTagName("input");
+    console.log(radioNodes)
+    radioNodes.checked = true;*/
+    input.classList.remove("todoInput");
     let count = divider.childElementCount;
     let todosCount = '';
-    todosCount = `<p>Count Of Todos : ${count}</p>`;
+    todosCount = `<p>Completed Todos : ${count}</p>`;
     NoOfTodos.innerHTML = todosCount;
 })
 Clear.addEventListener('click',(e) => {
