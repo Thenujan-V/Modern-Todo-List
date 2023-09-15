@@ -33,6 +33,7 @@ function addTodo(todo){
     para.id = "todoPara";
     let div = document.createElement("div");
     divider.appendChild(div)
+    
     createRadiobutton();
     div.appendChild(para);
     let line = document.createElement('hr');
@@ -40,7 +41,7 @@ function addTodo(todo){
     
     let count = divider.childElementCount;
     let todosCount = '';
-    todosCount = `<a>No Of Items :${count}</a>`;
+    todosCount = `<p>Count Of Todos : ${count}</p>`;
     NoOfTodos.innerHTML = todosCount;
 
     var radioBtn;
@@ -48,10 +49,11 @@ function createRadiobutton(){
     radioBtn = document.createElement("INPUT");
     radioBtn.type = "radio";
     div.appendChild(radioBtn);
-    radioBtn.style.paddingTop = "200pradioBtn";
+    radioBtn.id = "radioBtn";
+    /*radioBtn.style.paddingTop = "200pradioBtn";
     radioBtn.style.width = "20px";
     radioBtn.style.height = "20px";
-    radioBtn.style.position="absolute";
+    radioBtn.style.position="absolute";*/
 
     radioBtn.addEventListener('click', () => {
         var index;
@@ -78,37 +80,49 @@ function removeTodo(todo){
 
 All.addEventListener('click',(e) => {
     e.preventDefault();
-    /*divider.remove();
-    let divider = document.createElement("div");*/ 
-    complete.map((elements) => {
+    divider.innerHTML = ''; 
+    allTodos.map((elements) => {
         addTodo(elements);
     })
+    let count = divider.childElementCount;
+    let todosCount = '';
+    todosCount = `<p>Count Of Todos : ${count}</p>`;
+    NoOfTodos.innerHTML = todosCount;
 })
 
 Active.addEventListener("click", (e) => {
     e.preventDefault();
-    //removeAllChild(divider);
-    //console.log(divider.firstChild)
     while(divider.firstChild){
         divider.removeChild(divider.firstChild) 
     }
     todos.map((elements) => {
         addTodo(elements);
     })
+    let count = divider.childElementCount;
+    let todosCount = '';
+    todosCount = `<p>Count Of Todos : ${count}</p>`;
+    NoOfTodos.innerHTML = todosCount;
 })
 Completed.addEventListener("click", () => {
-    /*while(divider.firstChild){
-        divider.removeChild(divider.firstChild) 
-    }*/
+    
     divider.innerHTML = '';
     complete.map((elements) => {
         addTodo(elements);
     })
+    let count = divider.childElementCount;
+    let todosCount = '';
+    todosCount = `<p>Count Of Todos : ${count}</p>`;
+    NoOfTodos.innerHTML = todosCount;
 })
 Clear.addEventListener('click',(e) => {
     e.preventDefault();
     list.removeChild(list.firstElementChild);
     removeTodo(todos);
+
+    let todosCount = '';
+    todosCount = `<p>Count Of Todos : 0</p>`;
+    NoOfTodos.innerHTML = todosCount;
+
     localStorage.removeItem("allTodos");
     localStorage.removeItem("todos");
     localStorage.removeItem("complete");

@@ -25,7 +25,7 @@ body{
     background-size: cover;
     
 }
-#todo h2{
+#todo h1{
     margin-top:0px;
     color: var(--LightGrayishBlue);
     letter-spacing: 8px;
@@ -56,6 +56,8 @@ body{
     height: 20px;
     width: 20px;
     position:absolute;
+    top: 25px;
+    left: 3px;
 }
 #lowerLayer{
     padding-top:1px;
@@ -64,8 +66,8 @@ body{
     width:454px;
 }
 #noofList{
-    height:300px;
-    
+    height: 350px;
+
 }
 #noofList p{
     padding:0 10px 0 20px;
@@ -73,15 +75,24 @@ body{
     font-weight: 350;
     color: var(--LightGrayishBlue);
 }
+#noofList div{
+}
 #noofList hr{
     margin:0;
 }
-
+#radioBtn{
+    width:15px;
+    height:15px;
+    margin-left: 1%;
+    position: absolute;
+    
+}
 #buttons{
     display: flex;
     justify-content: center;
     gap:20px;
     padding-bottom:10px;
+    height: 20px;
 }
 
 #buttons a{
@@ -100,15 +111,36 @@ body{
     flex:1;
     padding-left:10px;
 }
+#first p{
+    font-size: 12px;
+    color: var(--DarkGrayishBlue);
+    font-weight: 700;
+}
+#second{
+    position: relative;
+    top: 9px;
+}
 #second a{
     flex:1; 
+    font-size: 12px;
     padding:5px;
+    
 }
 #last{
     flex:1;  
+    position: relative;
+    top: 9px;
+    left: 20px;
+}
+#last a{
+    font-size: 12px;
 }
 #noofList #todoPara{
     margin-left: 20px;
+}
+#lastLine{
+    color: var(--VeryDarkGrayishBlue);
+    
 }
 
 
