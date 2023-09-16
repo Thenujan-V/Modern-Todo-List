@@ -81,6 +81,7 @@ function createRadiobutton(){
         /*let check = document.createElement('img');
         parent.appendChild(check)
         check.src = 'Media/icon-check.svg'*/
+        para.classList.add("completedNow");
 
 
         let dividerHeight = divider.offsetHeight;
@@ -88,9 +89,9 @@ function createRadiobutton(){
         if(dividerHeight <= 350){
             list.classList.remove('noofList');
         }
-        let count = divider.childElementCount;
+        let count = todos.length;
         let todosCount = '';
-        todosCount = `<p>Count Of Todos : ${count}</p>`;
+        todosCount = `<p>${count} items left</p>`;
         NoOfTodos.innerHTML = todosCount;
     })
 }

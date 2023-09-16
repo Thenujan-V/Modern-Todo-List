@@ -76,6 +76,7 @@ body{
     position:absolute;
     top: 12px;
     margin-left: 8px;
+    color: aqua;
 }
 #lowerLayer{
     padding-top:1px;
@@ -112,6 +113,10 @@ body{
     color: var(--LightGrayishBlue);
     margin: 2px;
 }
+#noofList .completedNow{
+    text-decoration: line-through;
+    color: var(--DarkGrayishBlue);
+}
 #noofList p::first-letter{
     text-transform: capitalize;
 }
@@ -125,15 +130,6 @@ body{
     position: relative;
     top: 24px;
     left: 6px;
-}
-#divider img{
-    background-color: aqua;
-    height: 15px;
-    width: 15px;
-    border-radius: 50%;
-    position: relative;
-    bottom: 42px;
-    left:13px;
 }
 #buttons{
     display: flex;
