@@ -9,7 +9,6 @@ let NoOfTodos = document.querySelector("#first");
 let buttons = document.getElementById("buttons");
 let radio = document.querySelector(".inputRadio");
 
-//let todoPara = document.querySelector("#todoPara");
 let divider = document.querySelector("#divider");
 
 let todos = [];
@@ -51,6 +50,9 @@ function addTodo(todo){
     if(dividerHeight > 350){
     list.classList.add('noofList');
     }
+    else{
+        list.classList.remove('noofList')
+    }
 
     let count = divider.childElementCount;
     let todosCount = '';
@@ -76,6 +78,16 @@ function createRadiobutton(){
 
         let parent = radioBtn.parentElement;
         parent.remove();
+
+        let dividerHeight = divider.offsetHeight;
+        console.log(dividerHeight);
+        if(dividerHeight <= 350){
+            list.classList.remove('noofList');
+    }
+        let count = divider.childElementCount;
+        let todosCount = '';
+        todosCount = `<p>Count Of Todos : ${count}</p>`;
+        NoOfTodos.innerHTML = todosCount;
     })
 }
 }
@@ -113,14 +125,13 @@ Completed.addEventListener("click", () => {
     complete.map((elements) => {
         addTodo(elements);
     })
-    /*let radioNodes = divider.getElementsByTagName("input");
-    console.log(radioNodes)
-    radioNodes.checked = true;*/
+    
     input.classList.remove("todoInput");
     let count = divider.childElementCount;
     let todosCount = '';
     todosCount = `<p>Completed Todos : ${count}</p>`;
     NoOfTodos.innerHTML = todosCount;
+
 })
 Clear.addEventListener('click',(e) => {
     e.preventDefault();

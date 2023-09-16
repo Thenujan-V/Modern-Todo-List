@@ -95,6 +95,7 @@ body{
 .noofList::-webkit-scrollbar-track {
     background-color: var(--DarkGrayishBlue);
     border-radius: 10px;
+    
 }
 
 .noofList::-webkit-scrollbar-thumb {
@@ -102,13 +103,15 @@ body{
     border-radius: 10px;
 }
 #divider div{
-    margin-top: -15px;
+    /*margin-top: -15px;*/
+    
 }
 #noofList p{
-    padding:0px 10px 4px 20px;
+    padding:0px 10px 20px 20px;
     font-size: 18px;
     font-weight: 350;
     color: var(--LightGrayishBlue);
+    margin: 2px;
 }
 #noofList p::first-letter{
     text-transform: capitalize;
@@ -121,7 +124,7 @@ body{
     height:15px;
     margin-left: 1%;
     position: relative;
-    top: 37px;
+    top: 20px;
     left: 5px;
 }
 #buttons{
@@ -177,9 +180,37 @@ body{
 }
 #lastLine{
     color: var(--VeryDarkGrayishBlue);
+}
+.nightMood{
+
+}
+.dayMood{
+    background-image: url(Media/bg-desktop-dark.jpg);
+    height: 170px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.dayBody{
+    
+    background-color: var(--LightGrayishBlue);
+    
+    
+}
+.dayTodo h1{
+    
+    text-shadow: 5px 5px 10px black;
+    color: var(--LightGrayishBlue);
+}
+.dayTodoInput{
+    
+    background-color: var(--LightGrayishBlue);
+    color:var(--VeryDarkDesaturatedBlue);
     
 }
 
-
-
+.dayLowerLayer{
+    
+    background-color: var(--LightGrayishBlue);
+    
+}
 
