@@ -26,7 +26,7 @@ radio.addEventListener('click', () => {
     input.classList.remove("todoInput");
     addTodo(input.value);
     input.value = '';
-    //radio.checked = false;
+    radio.checked = false;
 })
 
 function addTodo(todo){

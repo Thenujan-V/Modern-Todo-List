@@ -24,15 +24,16 @@ body{
     background-size: cover;
 }
 #todo h1{
+    width: 10vw;
     font-size: 35px;
     text-shadow: 5px 5px 10px black;
     margin-top: 0;
     color: var(--LightGrayishBlue);
     letter-spacing: 8px;
     font-weight: 900;
-    position: relative;
+    position:fixed;
     top: 50px;
-    padding-left: 36%;
+    left: 36%;
 }
 #container{
     display: flex;
@@ -57,7 +58,7 @@ body{
 }
 #todoInput::placeholder{
     font-size: 16px;
-    letter-spacing: 6px;
+    letter-spacing: 4px;
 }
 
 .todoInput::placeholder{
@@ -71,7 +72,7 @@ body{
     width: 20px;
     position:absolute;
     top: 5px;
-    left: 35.6vw;
+    margin-left: 8px;
 }
 #lowerLayer{
     padding-top:1px;
@@ -84,11 +85,27 @@ body{
     height: 350px;
 }
 #noofList{
-    /*overflow: auto;
-    overflow-y: scroll;*/
+    overflow: auto;
+    overflow-y: scroll;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--DarkGrayishBlue);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--VeryDarkDesaturatedBlue);
+    border-radius: 10px;
+}
+#divider div{
+    margin-top: -15px;
 }
 #noofList p{
-    padding:0 10px 0 20px;
+    padding:0px 10px 4px 20px;
     font-size: 18px;
     font-weight: 350;
     color: var(--LightGrayishBlue);
@@ -103,8 +120,9 @@ body{
     width:15px;
     height:15px;
     margin-left: 1%;
-    position: absolute;
-    
+    position: relative;
+    top: 37px;
+    left: 5px;
 }
 #buttons{
     display: flex;
