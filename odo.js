@@ -8,6 +8,7 @@ let add = document.getElementById("add");
 let NoOfTodos = document.querySelector("#first");
 let buttons = document.getElementById("buttons");
 let radio = document.querySelector(".inputRadio");
+let dayMood = document.querySelector("#iconMoon");
 
 let divider = document.querySelector("#divider");
 
@@ -156,5 +157,28 @@ function removeTodo(todo){
         todo.shift();
     }
 }
+dayMood.addEventListener('click',() => {
+    document.getElementById('body').classList.add("dayBody");
+    document.getElementById('todo').classList.add("dayTodo");
+    input.classList.add("dayTodoInput");
+    document.getElementById('lowerLayer').classList.add("dayLowerLayer");
+    document.getElementById('todo').classList.add("dayMood");
+    document.getElementById('noofList').classList.add("dayNoofList");
+    document.getElementById('lastLine').classList.add("dayLastLine");
 
+    dayMood.src = 'Media/icon-moon.svg';
+    document.getElementById('dayMood').classList.add("nightMood");
 
+    
+    let nightMood = document.querySelector('.nightMood');
+
+    nightMood.addEventListener('click', ()=>{
+        document.getElementById('body').classList.remove("dayBody");
+        document.getElementById('todo').classList.remove("dayTodo");
+        input.classList.remove("dayTodoInput");
+        document.getElementById('lowerLayer').classList.remove("dayLowerLayer");
+        document.getElementById('todo').classList.remove("dayMood");
+        document.getElementById('noofList').classList.remove("dayNoofList");
+        document.getElementById('lastLine').classList.remove("dayLastLine");
+    })
+})

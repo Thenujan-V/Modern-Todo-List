@@ -19,7 +19,7 @@ body{
 }
 #todo{
     background-image: url(Media/bg-desktop-dark.jpg);
-    height: 170px;
+    height: 250px;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -32,15 +32,20 @@ body{
     letter-spacing: 8px;
     font-weight: 900;
     position:fixed;
-    top: 50px;
+    top: 80px;
     left: 36%;
+}
+#todo img{
+    position: absolute;
+    top:85px;
+    left: 62%;
 }
 #container{
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
-    top: -80px;
+    top: -120px;
 }
 #todoInput{
     width:413px;
@@ -101,10 +106,6 @@ body{
 .noofList::-webkit-scrollbar-thumb {
     background-color: var(--VeryDarkDesaturatedBlue);
     border-radius: 10px;
-}
-#divider div{
-    /*margin-top: -15px;*/
-    
 }
 #noofList p{
     padding:0px 10px 20px 20px;
@@ -180,37 +181,40 @@ body{
 }
 #lastLine{
     color: var(--VeryDarkGrayishBlue);
+    font-weight: 600;
+    margin-top: 50px;
 }
 .nightMood{
 
 }
-.dayMood{
-    background-image: url(Media/bg-desktop-dark.jpg);
-    height: 170px;
+#body .dayMood{
+    background-image: url(Media/bg-desktop-light.jpg);
+    height: 250px;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size:cover;
+    object-fit: cover;
 }
 .dayBody{
-    
     background-color: var(--LightGrayishBlue);
-    
-    
 }
 .dayTodo h1{
     
     text-shadow: 5px 5px 10px black;
     color: var(--LightGrayishBlue);
 }
-.dayTodoInput{
+#input .dayTodoInput{
     
     background-color: var(--LightGrayishBlue);
     color:var(--VeryDarkDesaturatedBlue);
     
 }
-
-.dayLowerLayer{
-    
+#todoList .dayLowerLayer{
     background-color: var(--LightGrayishBlue);
-    
+    box-shadow: 5px 5px 20px black;
 }
-
+#lowerLayer .dayNoofList  p{
+    color: var(--VeryDarkDesaturatedBlue);
+}
+#container .dayLastLine{
+    color: var(--DarkGrayishBlue);
+}
