@@ -8,7 +8,7 @@ let add = document.getElementById("add");
 let NoOfTodos = document.querySelector("#first");
 let buttons = document.getElementById("buttons");
 let radio = document.querySelector("#inputRadio");
-let dayMood = document.querySelector("#iconMoon");
+let Mood = document.querySelector("#iconMoon");
 
 let divider = document.querySelector("#divider");
 
@@ -160,8 +160,13 @@ function removeTodo(todo){
         todo.shift();
     }
 }
-dayMood.addEventListener('click',() => {
-    //dayMood.classList.remove("nightMood");
+Mood.addEventListener('click',() => {
+    dayMood();
+    Mood.addEventListener('click', ()=>{
+        nightMood()
+    })
+})
+function dayMood(){
     document.getElementById('inputRadio').classList.add("dayInputRadio");
     document.getElementById('body').classList.add("dayBody");
     document.getElementById('todo').classList.add("dayTodo");
@@ -171,25 +176,19 @@ dayMood.addEventListener('click',() => {
     document.getElementById('todo').classList.add("dayMood");
     document.getElementById('noofList').classList.add("dayNoofList");
     document.getElementById('lastLine').classList.add("dayLastLine");
-    //console.log('okey')
-    dayMood.src = 'Media/icon-moon.svg';
-    //ayMood.classList.add("nightMood");
-
     
-    //let nightMood = document.querySelector('.nightMood');
+    Mood.src = 'Media/icon-moon.svg';
+}
+function nightMood(){
+    document.getElementById('inputRadio').classList.remove("dayInputRadio");
+    document.getElementById('body').classList.remove("dayBody");
+    document.getElementById('todo').classList.remove("dayTodo");
+    input.classList.remove("dayTodoInput");
+    buttons.classList.remove("dayButtons")
+    document.getElementById('lowerLayer').classList.remove("dayLowerLayer");
+    document.getElementById('todo').classList.remove("dayMood");
+    document.getElementById('noofList').classList.remove("dayNoofList");
+    document.getElementById('lastLine').classList.remove("dayLastLine");
 
-    dayMood.addEventListener('click', ()=>{
-        document.getElementById('inputRadio').classList.remove("dayInputRadio");
-        document.getElementById('body').classList.remove("dayBody");
-        document.getElementById('todo').classList.remove("dayTodo");
-        input.classList.remove("dayTodoInput");
-        buttons.classList.remove("dayButtons")
-        document.getElementById('lowerLayer').classList.remove("dayLowerLayer");
-        document.getElementById('todo').classList.remove("dayMood");
-        document.getElementById('noofList').classList.remove("dayNoofList");
-        document.getElementById('lastLine').classList.remove("dayLastLine");
-
-        dayMood.src = 'Media/icon-sun.svg';
-    })
-    
-})
+    Mood.src = 'Media/icon-sun.svg';
+}
