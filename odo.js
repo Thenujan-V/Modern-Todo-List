@@ -37,6 +37,7 @@ function addTodo(todo){
     divider.appendChild(div)
     
     createRadiobutton();
+    console.log('okey')
     div.appendChild(para);
     let line = document.createElement('hr');
     div.appendChild(line);
@@ -49,7 +50,7 @@ function addTodo(todo){
     let dividerHeight = divider.offsetHeight;
     console.log(dividerHeight);
     if(dividerHeight > 350){
-    list.classList.add('noofList');
+        list.classList.add('noofList');
     }
     else{
         list.classList.remove('noofList')
@@ -62,11 +63,9 @@ function addTodo(todo){
 
     var radioBtn;
 function createRadiobutton(){
-    radioBtn = document.createElement("INPUT");
-    radioBtn.type = "radio";
+    radioBtn = document.createElement("i");
     div.appendChild(radioBtn);
-    radioBtn.id = "radioBtn";
-    
+    radioBtn.setAttribute('class','fa-regular fa-circle fa-xl');
 
     radioBtn.addEventListener('click', () => {
         var index;
@@ -78,13 +77,17 @@ function createRadiobutton(){
         localStorage.setItem("todos",JSON.stringify(todos));
 
         let parent = radioBtn.parentElement;
-        parent.remove();
+        /*parent.remove();*/
+        /*let check = document.createElement('img');
+        parent.appendChild(check)
+        check.src = 'Media/icon-check.svg'*/
+
 
         let dividerHeight = divider.offsetHeight;
         console.log(dividerHeight);
         if(dividerHeight <= 350){
             list.classList.remove('noofList');
-    }
+        }
         let count = divider.childElementCount;
         let todosCount = '';
         todosCount = `<p>Count Of Todos : ${count}</p>`;
@@ -158,6 +161,8 @@ function removeTodo(todo){
     }
 }
 dayMood.addEventListener('click',() => {
+    //dayMood.classList.remove("nightMood");
+
     document.getElementById('body').classList.add("dayBody");
     document.getElementById('todo').classList.add("dayTodo");
     input.classList.add("dayTodoInput");
@@ -165,14 +170,14 @@ dayMood.addEventListener('click',() => {
     document.getElementById('todo').classList.add("dayMood");
     document.getElementById('noofList').classList.add("dayNoofList");
     document.getElementById('lastLine').classList.add("dayLastLine");
-
+    console.log('okey')
     dayMood.src = 'Media/icon-moon.svg';
-    document.getElementById('dayMood').classList.add("nightMood");
+    //ayMood.classList.add("nightMood");
 
     
-    let nightMood = document.querySelector('.nightMood');
+    //let nightMood = document.querySelector('.nightMood');
 
-    nightMood.addEventListener('click', ()=>{
+    dayMood.addEventListener('click', ()=>{
         document.getElementById('body').classList.remove("dayBody");
         document.getElementById('todo').classList.remove("dayTodo");
         input.classList.remove("dayTodoInput");
@@ -180,5 +185,8 @@ dayMood.addEventListener('click',() => {
         document.getElementById('todo').classList.remove("dayMood");
         document.getElementById('noofList').classList.remove("dayNoofList");
         document.getElementById('lastLine').classList.remove("dayLastLine");
+
+        dayMood.src = 'Media/icon-sun.svg';
     })
+    
 })
