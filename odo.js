@@ -46,6 +46,11 @@ function addTodo(todo){
         lastElement.remove();
         input.classList.add("todoInput");
     }
+    let dividerHeight = divider.offsetHeight;
+    console.log(dividerHeight);
+    if(dividerHeight > 350){
+    list.classList.add('noofList');
+    }
 
     let count = divider.childElementCount;
     let todosCount = '';
@@ -58,10 +63,7 @@ function createRadiobutton(){
     radioBtn.type = "radio";
     div.appendChild(radioBtn);
     radioBtn.id = "radioBtn";
-    /*radioBtn.style.paddingTop = "200pradioBtn";
-    radioBtn.style.width = "20px";
-    radioBtn.style.height = "20px";
-    radioBtn.style.position="absolute";*/
+    
 
     radioBtn.addEventListener('click', () => {
         var index;
@@ -143,4 +145,5 @@ function removeTodo(todo){
         todo.shift();
     }
 }
+
 

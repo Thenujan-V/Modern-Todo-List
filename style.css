@@ -84,20 +84,20 @@ body{
 #noofList{
     height: 350px;
 }
-#noofList{
+.noofList {
     overflow: auto;
     overflow-y: scroll;
 }
-::-webkit-scrollbar {
-    width: 10px;
+.noofList::-webkit-scrollbar {
+    width: 8px;
 }
 
-::-webkit-scrollbar-track {
+.noofList::-webkit-scrollbar-track {
     background-color: var(--DarkGrayishBlue);
     border-radius: 10px;
 }
 
-::-webkit-scrollbar-thumb {
+.noofList::-webkit-scrollbar-thumb {
     background-color: var(--VeryDarkDesaturatedBlue);
     border-radius: 10px;
 }
