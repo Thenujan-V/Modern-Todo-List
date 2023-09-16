@@ -7,7 +7,7 @@ let Clear = document.getElementById('clear');
 let add = document.getElementById("add");
 let NoOfTodos = document.querySelector("#first");
 let buttons = document.getElementById("buttons");
-let radio = document.querySelector(".inputRadio");
+let radio = document.querySelector("#inputRadio");
 let dayMood = document.querySelector("#iconMoon");
 
 let divider = document.querySelector("#divider");
@@ -37,7 +37,6 @@ function addTodo(todo){
     divider.appendChild(div)
     
     createRadiobutton();
-    console.log('okey')
     div.appendChild(para);
     let line = document.createElement('hr');
     div.appendChild(line);
@@ -46,9 +45,10 @@ function addTodo(todo){
         let lastElement = divider.lastChild;
         lastElement.remove();
         input.classList.add("todoInput");
+        todos.pop();
     }
     let dividerHeight = divider.offsetHeight;
-    console.log(dividerHeight);
+    
     if(dividerHeight > 350){
         list.classList.add('noofList');
     }
@@ -69,23 +69,21 @@ function createRadiobutton(){
 
     radioBtn.addEventListener('click', () => {
         var index;
+        radioBtn.setAttribute("id","nowCompleted")
         let nextPara = radioBtn.nextSibling.innerHTML;
         complete.push(nextPara);
         localStorage.setItem("complete",JSON.stringify(complete));
         index = todos.indexOf(nextPara);
-        todos.splice(index,1);
+        if(index >= 0){
+            todos.splice(index,1);
+        }
         localStorage.setItem("todos",JSON.stringify(todos));
 
         let parent = radioBtn.parentElement;
-        /*parent.remove();*/
-        /*let check = document.createElement('img');
-        parent.appendChild(check)
-        check.src = 'Media/icon-check.svg'*/
         para.classList.add("completedNow");
 
 
         let dividerHeight = divider.offsetHeight;
-        console.log(dividerHeight);
         if(dividerHeight <= 350){
             list.classList.remove('noofList');
         }
@@ -99,7 +97,10 @@ function createRadiobutton(){
 All.addEventListener('click',(e) => {
     e.preventDefault();
     divider.innerHTML = ''; 
-    allTodos.map((elements) => {
+    todos.map((elements) => {
+        addTodo(elements);
+    })
+    complete.map((elements) => {
         addTodo(elements);
     })
     input.classList.remove("todoInput");
@@ -145,8 +146,6 @@ Clear.addEventListener('click',(e) => {
     removeTodo(complete);
     divider.innerHTML = ""
 
-    console.log(todos);
-
     let todosCount = '';
     todosCount = `<p>Count Of Todos : 0</p>`;
     NoOfTodos.innerHTML = todosCount;
@@ -163,15 +162,16 @@ function removeTodo(todo){
 }
 dayMood.addEventListener('click',() => {
     //dayMood.classList.remove("nightMood");
-
+    document.getElementById('inputRadio').classList.add("dayInputRadio");
     document.getElementById('body').classList.add("dayBody");
     document.getElementById('todo').classList.add("dayTodo");
     input.classList.add("dayTodoInput");
+    buttons.classList.add("dayButtons")
     document.getElementById('lowerLayer').classList.add("dayLowerLayer");
     document.getElementById('todo').classList.add("dayMood");
     document.getElementById('noofList').classList.add("dayNoofList");
     document.getElementById('lastLine').classList.add("dayLastLine");
-    console.log('okey')
+    //console.log('okey')
     dayMood.src = 'Media/icon-moon.svg';
     //ayMood.classList.add("nightMood");
 
@@ -179,9 +179,11 @@ dayMood.addEventListener('click',() => {
     //let nightMood = document.querySelector('.nightMood');
 
     dayMood.addEventListener('click', ()=>{
+        document.getElementById('inputRadio').classList.remove("dayInputRadio");
         document.getElementById('body').classList.remove("dayBody");
         document.getElementById('todo').classList.remove("dayTodo");
         input.classList.remove("dayTodoInput");
+        buttons.classList.remove("dayButtons")
         document.getElementById('lowerLayer').classList.remove("dayLowerLayer");
         document.getElementById('todo').classList.remove("dayMood");
         document.getElementById('noofList').classList.remove("dayNoofList");

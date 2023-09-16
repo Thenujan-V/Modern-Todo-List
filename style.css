@@ -8,8 +8,9 @@
     --VeryDarkGrayishBlue: hsl(237, 14%, 26%);
 
     --BrightBlue: hsl(220, 98%, 61%);
-    --CheckBackground: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%)
+    --CheckBackground: linear-gradient(hsl(192deg, 100%, 67%),hsl(280deg, 87%, 65%));
 }
+
 body{
     margin: 0;
     padding:0;
@@ -57,6 +58,7 @@ body{
     border-style:none;
     padding-left: 40px;
     border-radius: 10px;
+    
 }
 #todoInput::first-letter{
     text-transform: capitalize;
@@ -72,11 +74,12 @@ body{
 #input .todoInput{
     border: 1px solid red;
 }
-.inputRadio{
+#inputRadio{
     position:absolute;
     top: 12px;
     margin-left: 8px;
     color: aqua;
+    cursor: pointer;
 }
 #lowerLayer{
     padding-top:1px;
@@ -84,6 +87,7 @@ body{
     margin-top: 15px;
     width:454px;
     border-radius: 10px;
+    /*box-shadow: 5px 5px 10px rgb(107, 106, 106);*/
 }
 #noofList{
     height: 350px;
@@ -109,12 +113,13 @@ body{
 #noofList p{
     padding:0px 10px 20px 20px;
     font-size: 18px;
-    font-weight: 350;
+    font-weight: 400;
     color: var(--LightGrayishBlue);
     margin: 2px;
 }
 #noofList .completedNow{
     text-decoration: line-through;
+    text-decoration-thickness:3%;
     color: var(--DarkGrayishBlue);
 }
 #noofList p::first-letter{
@@ -130,6 +135,11 @@ body{
     position: relative;
     top: 24px;
     left: 6px;
+    color: var(--DarkGrayishBlue);
+    cursor: pointer;
+}
+#noofList #nowCompleted{
+    color:red;
 }
 #buttons{
     display: flex;
@@ -221,8 +231,9 @@ body{
 #container .dayLastLine{
     color: var(--DarkGrayishBlue);
 }
-.inputRadio{
-    position:absolute;
-    top: 12px;
-    margin-left: 8px;
+#input .dayInputRadio{
+    color: rgb(238, 1, 255);
+}
+#lowerLayer .dayButtons a:hover{
+    color:var(--VeryDarkBlue)
 }
