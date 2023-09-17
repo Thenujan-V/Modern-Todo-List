@@ -65,7 +65,7 @@ function addTodo(todo){
 function createRadiobutton(){
     radioBtn = document.createElement("i");
     div.appendChild(radioBtn);
-    radioBtn.setAttribute('class','fa-regular fa-circle fa-xl');
+    radioBtn.setAttribute('class','fa-regular fa-circle fa-lg');
 
     radioBtn.addEventListener('click', () => {
         var index;

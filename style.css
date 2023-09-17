@@ -66,6 +66,7 @@ body{
 #todoInput::placeholder{
     font-size: 16px;
     letter-spacing: 4px;
+    
 }
 
 .todoInput::placeholder{
@@ -81,13 +82,16 @@ body{
     color: aqua;
     cursor: pointer;
 }
+#inputRadio :hover{
+    color: hsl(280deg, 87%, 65%);
+}
 #lowerLayer{
     padding-top:1px;
     background-color: var(--VeryDarkDesaturatedBlue);
     margin-top: 15px;
     width:454px;
     border-radius: 10px;
-    /*box-shadow: 5px 5px 10px rgb(107, 106, 106);*/
+    
 }
 #noofList{
     height: 350px;
@@ -233,6 +237,9 @@ body{
 }
 #input .dayInputRadio{
     color: rgb(238, 1, 255);
+}
+#input .dayInputRadio :hover{
+    color: hsl(192deg, 100%, 67%);
 }
 #lowerLayer .dayButtons a:hover{
     color:var(--VeryDarkBlue)
